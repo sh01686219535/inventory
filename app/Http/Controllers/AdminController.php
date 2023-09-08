@@ -46,7 +46,22 @@ class AdminController extends Controller
         return $imageURL;
     }
     //passwordChange
-    // public function passwordChange(){
-    //     return view('backEnd.admin.password-change');
-    // }
+    public function password(){
+        return view('backEnd.admin.password-change');
+    }
+    //updatePassword
+    public function updatePassword(Request $request){
+        // $request->validate([
+        //     'oldPassword'=>'required',
+        //     'newPassword'=>'required',
+        //     'confirmPassword'=>'required|same:newPassword',
+
+        // ]);
+        return $request;
+        $request->validate([
+            'oldPassword'=>'required',
+            'newPassword'=>'required',
+            'confirmPassword'=>'required|same:newPassword',
+        ]);
+    }
 }

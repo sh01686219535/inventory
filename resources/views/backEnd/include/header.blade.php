@@ -69,9 +69,9 @@
                                     </li>
                                    
                                     <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bx bx-cog me-2"></i>
-                                            <span class="align-middle">Settings</span>
+                                        <a class="dropdown-item" href="{{route('password')}}">
+                                            <i class="fa-solid fa-lock me-2"></i>
+                                            <span class="align-middle">Password Change</span>
                                         </a>
                                     </li>
                                     <li>
