@@ -22,16 +22,16 @@ Admin Edit Profile
                             <input type="email" id="email" name="email" value="{{ $user2->email}}" placeholder="Enter Your Email" class="form-control my-1">
                         </div>
                         <div class="form-group">
-                            <label for="image">Image</label>
-                            <input type="file" id="image" name="image" class="form-control my-1">
+                            <label for="Image">Image</label>
+                            <input type="file" id="Image" name="image" class="form-control my-1">
                         </div>
-                        <div class="form-group my-2">
-                        @if(!empty($user2->image))
-                        <img class="roune-img" id="show-img" style="width:250px; height:150px" src="{{asset($user2->image)}}" alt="">
-                        @else
-                        <img id="show-img" style="width:250px; height:150px" src="{{asset('backEndAssets')}}/img.jpg" alt="">
-                        @endif
-                        <!-- <img class="roune-img" id="show-img" style="width:250px; height:150px" src="{{asset('backEndAssets')}}/assets/img/avatars/1.png" alt=""> -->
+                        <div class="form-group">
+                            <label for="Image-show"></label>
+                            @if($user2->image)
+                            <img id="showImage" src="{{asset($user2->image)}}" id="Image-show" class="rounded avater-lg my-2" style="width:100px; height:100px;" alt="">
+                            @else 
+                            <img id="showImage" src="{{asset('backEndAssets')}}/img.jpg" id="Image-show" class="rounded avater-lg my-2" style="width:100px; height:100px;" alt="">
+                            @endif
                         </div>
                         <input type="submit" value="Submit" class="my-2 btn btn-primary">
                     </form>
@@ -42,15 +42,14 @@ Admin Edit Profile
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
-  $(document).ready(function () {
-    $('#image').change(function (e) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#show-img').attr('src', e.target.result); 
-        }
-        reader.readAsDataURL(e.target.files[0]);
+    $(document).ready(function() {
+        $('#Image').change(function (e) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#showImage').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
+        });
     });
-});
-
 </script>
 @endsection

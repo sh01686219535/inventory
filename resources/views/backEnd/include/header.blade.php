@@ -25,16 +25,19 @@
                                     data-icon="octicon-star" data-size="large" data-show-count="true"
                                     aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
                             </li>
-
+                           @php
+                           $id = Auth::user()->id;
+                           $user =  App\Models\User::find($id); 
+                           @endphp
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
-                                    <div class="avatar avatar-online">
-                                    @if(!empty($user->image))
-                                        <img class="w-px-40 h-auto rounded-circle" id="show-img" style="width:250px; height:150px" src="{{asset($user->image)}}" alt="">
+                                    <div class=" avatar-online">
+                                    @if($user->image)
+                                        <img class="w-px-50  rounded-circle" id="show-img" style="width:150px; height:50px" src="{{asset($user->image)}}" alt="">
                                     @else
-                                       <img class="w-px-40 h-auto rounded-circle" id="show-img" style="width:250px; height:150px" src="{{asset('backEndAssets')}}/img.jpg" alt="">
+                                       <img class="w-px-50  rounded-circle" id="show-img" style="width:150px; height:50px" src="{{asset('backEndAssets')}}/img.jpg" alt="">
                                     @endif
                                     </div>
                                 </a>
@@ -44,11 +47,11 @@
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar avatar-online">
-                                                    @if(!empty($user->image))
-                                                       <img class="w-px-40 h-auto rounded-circle" id="show-img" style="width:250px; height:150px" src="{{asset($user->image)}}" alt="">
+                                                    <div class=" avatar-online">
+                                                    @if($user->image)
+                                                       <img class="w-px-50 rounded-circle" id="show-img" style="width:150px; height:50px" src="{{asset($user->image)}}" alt="">
                                                     @else
-                                                        <img class="w-px-40 h-auto rounded-circle" id="show-img" style="width:250px; height:150px" src="{{asset('backEndAssets')}}/img.jpg" alt="">
+                                                        <img class="w-px-50 rounded-circle" id="show-img" style="width:150px; height:50px" src="{{asset('backEndAssets')}}/img.jpg" alt="">
                                                     @endif
                                                     </div>
                                                 </div>

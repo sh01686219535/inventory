@@ -18,7 +18,7 @@ Admin Profile
                     @endif
                     <p class="h4"><b>Name :</b> {{$user1->name}}</p><hr>
                     <p><b>Email :</b> {{$user1->email}}</p><hr>
-                    <a href="{{route('edit.profile',$user1->id)}}" class="btn btn-primary">Edit Profile</a>
+                    <a href="{{route('edit.profile')}}" class="btn btn-primary">Edit Profile</a>
                 </div>
             </div>
         </div>

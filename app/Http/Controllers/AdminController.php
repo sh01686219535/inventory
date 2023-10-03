@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -21,7 +22,8 @@ class AdminController extends Controller
         return view('backEnd.admin.profile',compact('user1'));
     }
     //editProfile
-    public function editProfile($id){
+    public function editProfile(){
+        $id = Auth::user()->id;
         $user2 =  User::find($id);
         return view('backEnd.admin.edit-profile',compact('user2'));
     }
@@ -35,7 +37,12 @@ class AdminController extends Controller
             $user->image = $this->makeImage($request);
         }
         $user->save();
-        return redirect('/profile')->with('message','Admin Profile Update Successfully');
+        $notification = array(
+            'alert-type' => 'success',
+            'message'=>'Admin Profile Update Successfully'
+        )
+        ;
+        return redirect('/profile')->with($notification);
     }
     public function makeImage($request){
         $image = $request->file('image');
@@ -51,17 +58,18 @@ class AdminController extends Controller
     }
     //updatePassword
     public function updatePassword(Request $request){
-        // $request->validate([
-        //     'oldPassword'=>'required',
-        //     'newPassword'=>'required',
-        //     'confirmPassword'=>'required|same:newPassword',
-
-        // ]);
-        return $request;
         $request->validate([
             'oldPassword'=>'required',
             'newPassword'=>'required',
             'confirmPassword'=>'required|same:newPassword',
         ]);
+        $authPassword = Auth::user()->password;
+        if (Hash::check($request->oldPassword,$authPassword)) {
+            $user = User::find(Auth::id());
+            $user->password = bcrypt($request->newPassword);
+            $user->save();
+            
+        }
+        return back()->with('message','Admin Password Update Successfully');
     }
 }
