@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SupplierController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +28,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::post('/store-profile',[AdminController::class,'storeProfile'])->name('store.profile'); 
     Route::get('/password',[AdminController::class,'password'])->name('password');
     Route::post('/update-password',[AdminController::class,'updatePassword'])->name('update.password');
+    //supplier
+    Route::controller(SupplierController::class)->group(function(){
+       Route::get('/supplier','supplier')->name('supplier');
+    });
 });
