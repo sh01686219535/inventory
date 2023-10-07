@@ -1,6 +1,6 @@
 @extends('backEnd.home.master')
 @section('title')
-Supplier
+Customer
 @endsection
 @section('content')
   <div class="container">
@@ -8,9 +8,9 @@ Supplier
         <div class="col-lg-12">
           <div class="card">
             <div class="card-head">
-              <h2 class="text-center my-5">Supplier Table</h2>
+              <h2 class="text-center my-5">Customer Table</h2>
               <div class="supplier-main">
-                 <a class="btn btn-primary m-3" href="{{route('add.supplier')}}">Add Supplier</a>
+                 <a class="btn btn-primary m-3" href="{{route('add.customer')}}">Add Customer</a>
                  <div class="search-supplier m-3">
                   <form action="" method="post" class="supplier-form">
                     @csrf
@@ -30,21 +30,25 @@ Supplier
                           <th>Email</th>
                           <th>Phone</th>
                           <th>Address</th>
+                          <th>Image</th>
                           <th>Action</th>
                          </tr>
                       </thead>
                       <tbody>
-                      @php $i = 0 @endphp
-                      @foreach ($supplier as $suppliers)
+                      @php $i = 1 @endphp
+                      @foreach ($customer as $customers)
                       <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$suppliers->supplier_name}}</td>
-                        <td>{{$suppliers->supplier_email}}</td>
-                        <td>{{$suppliers->supplier_phone}}</td>
-                        <td>{{Str::limit($suppliers->supplier_address,10)}}</td>
+                        <td>{{$customers->customer_name}}</td>
+                        <td>{{$customers->customer_email}}</td>
+                        <td>{{$customers->customer_phone}}</td>
+                        <td>{{Str::limit($customers->customer_address,10)}}</td>
                         <td>
-                            <a href="{{route('edit.supplier',$suppliers->id)}}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="{{route('delete.supplier',$suppliers->id)}}" id="delete" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                            <img src="{{asset($customers->customer_image)}}" style="height:50px;width:50px" alt="">
+                        </td>
+                        <td>
+                            <a href="{{route('edit.customer',$customers->id)}}" class="btn btn-primary btn-weight"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{route('delete.customer',$customers->id)}}" id="delete" class="btn btn-danger btn-weight"><i class="fa-solid fa-trash-can"></i></a>
 
                         </td>
                       </tr>

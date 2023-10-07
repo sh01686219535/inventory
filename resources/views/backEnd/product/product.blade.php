@@ -1,6 +1,6 @@
 @extends('backEnd.home.master')
 @section('title')
-Supplier
+Product
 @endsection
 @section('content')
   <div class="container">
@@ -8,9 +8,9 @@ Supplier
         <div class="col-lg-12">
           <div class="card">
             <div class="card-head">
-              <h2 class="text-center my-5">Supplier Table</h2>
+              <h2 class="text-center my-5">Product Table</h2>
               <div class="supplier-main">
-                 <a class="btn btn-primary m-3" href="{{route('add.supplier')}}">Add Supplier</a>
+                 <a class="btn btn-primary m-3" href="{{route('add.product')}}">Add Product</a>
                  <div class="search-supplier m-3">
                   <form action="" method="post" class="supplier-form">
                     @csrf
@@ -26,25 +26,25 @@ Supplier
                       <thead>
                          <tr>
                           <th>Sl</th>
-                          <th>Name</th>
-                          <th>Email</th>
-                          <th>Phone</th>
-                          <th>Address</th>
+                          <th>Product Name</th>
+                          <th>Supplier Name</th>
+                          <th>Unit Name</th>
+                          <th>Category Name</th>
                           <th>Action</th>
                          </tr>
                       </thead>
                       <tbody>
-                      @php $i = 0 @endphp
-                      @foreach ($supplier as $suppliers)
+                       @php $i = 1 @endphp
+                      @foreach ($product as $products)
                       <tr>
                         <td>{{$i++}}</td>
-                        <td>{{$suppliers->supplier_name}}</td>
-                        <td>{{$suppliers->supplier_email}}</td>
-                        <td>{{$suppliers->supplier_phone}}</td>
-                        <td>{{Str::limit($suppliers->supplier_address,10)}}</td>
+                        <td>{{$products->product_name}}</td>
+                        <td>{{$products['supplier']['supplier_name']}}</td>
+                        <td>{{$products['unit']['unit_name']}}</td>
+                        <td>{{$products['category']['category_name']}}</td>
                         <td>
-                            <a href="{{route('edit.supplier',$suppliers->id)}}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="{{route('delete.supplier',$suppliers->id)}}" id="delete" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                            <a href="{{route('edit.product',$products->id)}}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{route('delete.product',$products->id)}}" id="delete" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
 
                         </td>
                       </tr>

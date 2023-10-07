@@ -68,7 +68,7 @@ class AdminController extends Controller
             $user = User::find(Auth::id());
             $user->password = bcrypt($request->newPassword);
             $user->save();
-            
+
         }
         return back()->with('message','Admin Password Update Successfully');
     }

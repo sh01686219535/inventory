@@ -5,7 +5,7 @@
 .sup-input{
     padding: 5px 10px;
     border-radius: 6px;
-  
+
 }
 .sup-input:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -20,7 +20,7 @@
     background: #f1f1f1;
     border-radius: 8px 0 0 8px;
 }
-  
+
 .supplier-form button {
     float: left;
     width: 20%;
@@ -33,13 +33,17 @@
     cursor: pointer;
     border-radius: 0 8px 8px 0;
 }
-  
+
   .supplier-form button:hover {
     background: #0b7dda;
   }
-  
+
   .supplier-form::after {
     content: "";
     clear: both;
     display: table;
+  }
+  .btn-weight{
+    width: 50px;
+    height: 40px;
   }

@@ -64,7 +64,7 @@
                         </a>
                     </li>
 
-                    <!-- Layouts -->
+                    <!-- Manage Supplier -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -77,29 +77,91 @@
                                     <div data-i18n="Without menu">All Supplier</div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    {{-- end Supplier --}}
+                    <!-- Manage Customer -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-layout"></i>
+                            <div data-i18n="Layouts">Manage Customer</div>
+                        </a>
+                        <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="layouts-without-navbar.html" class="menu-link">
-                                    <div data-i18n="Without navbar">Without navbar</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-container.html" class="menu-link">
-                                    <div data-i18n="Container">Container</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-fluid.html" class="menu-link">
-                                    <div data-i18n="Fluid">Fluid</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-blank.html" class="menu-link">
-                                    <div data-i18n="Blank">Blank</div>
+                                <a href="{{route('customer')}}" class="menu-link">
+                                    <div data-i18n="Without menu">All Customer</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
+                    {{-- end Customer --}}
+                      <!-- Manage Unit -->
+                      <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-layout"></i>
+                            <div data-i18n="Layouts">Manage Unit</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{route('unit')}}" class="menu-link">
+                                    <div data-i18n="Without menu">All Unit</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- end Unit --}}
+                       <!-- Manage Category -->
+                       <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-layout"></i>
+                            <div data-i18n="Layouts">Manage Category</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{route('category')}}" class="menu-link">
+                                    <div data-i18n="Without menu">All Category</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- end Category --}}
+                    <!-- Manage Product -->
+                        <li class="menu-item">
+                            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                <i class="menu-icon tf-icons bx bx-layout"></i>
+                                <div data-i18n="Layouts">Manage Product</div>
+                            </a>
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="{{route('product')}}" class="menu-link">
+                                        <div data-i18n="Without menu">All Product</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    {{-- end Product --}}
+                      <!-- Manage Purchase -->
+                      <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-layout"></i>
+                            <div data-i18n="Layouts">Manage Purchase</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{route('purchase')}}" class="menu-link">
+                                    <div data-i18n="Without menu">All Purchase</div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{route('pending.purchase')}}" class="menu-link">
+                                    <div data-i18n="Without menu">Approve Purchase</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                {{-- end Purchase --}}
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Pages</span>
                     </li>
