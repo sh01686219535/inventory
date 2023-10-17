@@ -27,7 +27,7 @@
                             </li>
                            @php
                            $id = Auth::user()->id;
-                           $user =  App\Models\User::find($id); 
+                           $user =  App\Models\User::find($id);
                            @endphp
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -35,13 +35,13 @@
                                     data-bs-toggle="dropdown">
                                     <div class=" avatar-online">
                                     @if($user->image)
-                                        <img class="w-px-50  rounded-circle" id="show-img" style="width:150px; height:50px" src="{{asset($user->image)}}" alt="">
+                                        <img class="w-px-50  rounded-circle" id="show-img" style="width:150px; height:40px" src="{{asset($user->image)}}" alt="">
                                     @else
-                                       <img class="w-px-50  rounded-circle" id="show-img" style="width:150px; height:50px" src="{{asset('backEndAssets')}}/img.jpg" alt="">
+                                       <img class="w-px-50  rounded-circle" id="show-img" style="width:150px; height:40px" src="{{asset('backEndAssets')}}/img.jpg" alt="">
                                     @endif
                                     </div>
                                 </a>
-                              
+
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="#">
@@ -49,9 +49,9 @@
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class=" avatar-online">
                                                     @if($user->image)
-                                                       <img class="w-px-50 rounded-circle" id="show-img" style="width:150px; height:50px" src="{{asset($user->image)}}" alt="">
+                                                       <img class="w-px-50 rounded-circle" id="show-img" style="width:100px; height:40px" src="{{asset($user->image)}}" alt="">
                                                     @else
-                                                        <img class="w-px-50 rounded-circle" id="show-img" style="width:150px; height:50px" src="{{asset('backEndAssets')}}/img.jpg" alt="">
+                                                        <img class="w-px-50 rounded-circle" id="show-img" style="width:100px; height:40px" src="{{asset('backEndAssets')}}/img.jpg" alt="">
                                                     @endif
                                                     </div>
                                                 </div>
@@ -70,7 +70,7 @@
                                             <span class="align-middle">My Profile</span>
                                         </a>
                                     </li>
-                                   
+
                                     <li>
                                         <a class="dropdown-item" href="{{route('password')}}">
                                             <i class="fa-solid fa-lock me-2"></i>

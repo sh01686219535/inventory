@@ -48,7 +48,13 @@
 @stack('js')
  <script src="{{asset('backEndAssets')}}/assets/js/code.js"></script>
  <script src="{{asset('backEndAssets')}}/assets/js/handlebars.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"
+ integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  {{-- select --}}
+  <script src="{{asset('backEndAssets')}}/assets/select2/js/select2.min.js"></script>
+  <script src="{{asset('backEndAssets')}}/assets/select2/form-advanced.init.js"></script>
+
 </body>
 
  </html>

@@ -47,3 +47,7 @@
     width: 50px;
     height: 40px;
   }
+.btn-p{
+    border-radius: 25px !important;
+    padding: 5px 18px !important;
+}

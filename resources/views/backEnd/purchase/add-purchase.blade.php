@@ -36,8 +36,8 @@ Add Purchase
                         </div>
                         <div class="col-md-4">
                             <div class="form-group md-3">
-                                <label for="supplier_id"><b>Supplier Name</b></label>
-                                <select id="supplier_id" name="supplier_id" class="form-select my-2">
+                                <label for="supplier_id" class="mb-2"><b>Supplier Name</b></label>
+                                <select id="supplier_id" name="supplier_id" class="form-select select2">
                                     <option value="">Select Supplier Name</option>
                                     @foreach ($supplier as $item)
                                         <option value="{{$item->id}}">{{$item->supplier_name}}</option>
@@ -47,16 +47,16 @@ Add Purchase
                         </div>
                         <div class="col-md-4">
                             <div class="form-group md-3">
-                                <label for="category_id"><b>Category Name</b></label>
-                                <select id="category_id" name="category_id" class="form-select my-2">
+                                <label for="category_id" class="mb-2"><b>Category Name</b></label>
+                                <select id="category_id" name="category_id" class="form-select  select2">
                                     <option value="">Select Category Name</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group md-3">
-                                <label for="product_id"><b>Product Name</b></label>
-                                <select id="product_id" name="product_id" class="form-select my-2" aria-lavel="default select example">
+                                <label for="product_id" class="mb-2"><b>Product Name</b></label>
+                                <select id="product_id" name="product_id" class="form-select select2" aria-lavel="default select example">
                                     <option value="">Select Supplier Name</option>
                                 </select>
                             </div>

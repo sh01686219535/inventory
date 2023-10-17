@@ -10,7 +10,7 @@ Purchase Pending
             <div class="card-head">
               <h2 class="text-center my-5">Purchase Pending Table</h2>
               <div class="supplier-main">
-                 <a class="btn btn-primary m-3" href="{{route('add.purchase')}}">Add Purchase</a>
+                 {{-- <a class="btn btn-primary m-3" href="{{route('add.purchase')}}">Add Purchase</a> --}}
                  <div class="search-supplier m-3">
                   <form action="" method="post" class="supplier-form">
                     @csrf

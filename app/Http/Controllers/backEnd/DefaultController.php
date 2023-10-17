@@ -29,4 +29,15 @@ class DefaultController extends Controller
         }
         return response()->json($html);
     }
+    //getProductStock
+    public function getProductStock(Request $request){
+        $product_id = $request->product_id;
+        $product = Product::where('id',$product_id)->first()->quantity;
+
+        // $html = '<option value="">Select Product Name</option>';
+        // foreach ($product as $value) {
+        //     $html .= '<option value="'.$value->id.'">'.$value->product_name.'</option>';
+        // }
+        return response()->json($product);
+    }
 }

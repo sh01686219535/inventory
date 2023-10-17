@@ -10,7 +10,7 @@ Product
             <div class="card-head">
               <h2 class="text-center my-5">Product Table</h2>
               <div class="supplier-main">
-                 <a class="btn btn-primary m-3" href="{{route('add.product')}}">Add Product</a>
+                 <a class="btn btn-primary m-3" href="{{route('add.product')}}"><i class="fas fa-plus-circle"></i>Add Product</a>
                  <div class="search-supplier m-3">
                   <form action="" method="post" class="supplier-form">
                     @csrf

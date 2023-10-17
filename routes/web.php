@@ -9,6 +9,7 @@ use App\Http\Controllers\backEnd\CategoryController;
 use App\Http\Controllers\backEnd\ProductController;
 use App\Http\Controllers\backEnd\PurchaseController;
 use App\Http\Controllers\backEnd\DefaultController;
+use App\Http\Controllers\backEnd\InvoiceController;
 
 
 
@@ -94,10 +95,18 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::controller(DefaultController::class)->group(function(){
         Route::get('/get-category','getCategory')->name('get-category');
         Route::get('/get-product','getProduct')->name('get-product');
-        // Route::post('/save-product','saveProduct')->name('save.product');
-        // Route::get('/edit.product/{id}','editProduct')->name('edit.product');
-        // Route::post('/update-product','updateProduct')->name('update.product');
-        // Route::get('/delete-product/{id}','deleteProduct')->name('delete.product');
+        Route::get('/get-product-stock','getProductStock')->name('get-product-stock');
+
+    });
+
+    //invoice
+    Route::controller(InvoiceController::class)->group(function(){
+        Route::get('/invoice','invoice')->name('invoice');
+        Route::get('/add-invoice','addInvoice')->name('add.invoice');
+        // Route::post('/save-purchase','savePurchase')->name('save.purchase');
+        // Route::get('/delete-purchase/{id}','deletePurchase')->name('delete.purchase');
+        // Route::get('/pending-purchase','pendingPurchase')->name('pending.purchase');
+        // Route::get('/approve-purchase/{id}','approvePurchase')->name('approve.purchase');
     });
 });
 
