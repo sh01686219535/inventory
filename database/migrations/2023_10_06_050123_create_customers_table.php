@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('customer_name');
             $table->string('customer_email');
             $table->string('customer_phone');
-            $table->longText('customer_address');
-            $table->text('customer_image');
+            $table->longText('customer_address')->nullable();
+            $table->text('customer_image')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

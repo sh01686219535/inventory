@@ -70,7 +70,7 @@ Add Invoice
                     </div>
             </div>
             <div class="card-body">
-                <form action="{{route('save.purchase')}}" method="post">
+                <form action="{{route('save.invoice')}}" method="post">
                     @csrf
                     <table class="table-sm table-bordered" style="width:100%; border-color:#ddd">
                     <thead>
@@ -108,6 +108,51 @@ Add Invoice
                             <textarea name="description" id="description" class="form-control" placeholder="Enter Description here"></textarea>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="paid_status">Paid Status</label>
+                            <select name="paid_status" id="paid_status" class="form-select my-2">
+                                <option value="">Select Status</option>
+                                <option value="full_pai">Full Paid</option>
+                                <option value="full_due">Full Due</option>
+                                <option value="partial_paid">Partial Paid</option>
+                            </select>
+                            <input type="text" name="paid_amount" style="display: none;" class="form-control paid_amount" placeholder="Enter Paid Amount">
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label for="customer_id">Customer Name</label>
+                            <select name="customer_id" id="customer_id" class="form-select my-2">
+                                <option value="">----Select Customer----</option>
+                                @foreach ($customer as $item)
+                                <option value="{{$item->id}}">{{$item->customer_name}}-{{$item->customer_phone}}</option>
+                                @endforeach
+                                <option value="0">New Customer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row new_customer" style="display: none;">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="customer_name">Customer Name</label>
+                                <input type="text" name="customer_name" id="customer_name" placeholder="Enter Customer Name" class="my-2 form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="customer_phone">Customer Phone</label>
+                                <input type="text" name="customer_phone" id="customer_phone" placeholder="Enter Customer Phone" class="my-2 form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="customer_email">Customer Email</label>
+                                <input type="text" name="customer_email" id="customer_email" placeholder="Enter Customer Email" class="my-2 form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
                     <div class="form-group md-3" style="margin-top: 10px">
                         <input type="submit" value="Invoice Store"  class="btn btn-info">
                     </div>
@@ -240,6 +285,24 @@ Add Invoice
                }
             });
         });
+    });
+    //paid amount
+    $(document).on('change','#paid_status',function () {
+        var paidStatus  = $(this).val();
+        if (paidStatus == 'partial_paid') {
+            $('.paid_amount').show();
+        }else{
+            $('.paid_amount').hide();
+        }
+    });
+      //Cusotmer Id
+      $(document).on('change','#customer_id',function () {
+        var customer_id  = $(this).val();
+        if (customer_id == '0') {
+            $('.new_customer').show();
+        }else{
+            $('.new_customer').hide();
+        }
     });
 </script>
 

@@ -8,7 +8,7 @@ Invoice
         <div class="col-lg-12">
           <div class="card">
             <div class="card-head">
-              <h2 class="text-center my-5">Invoice Table</h2>
+              <h2 class="text-center my-5">Print Invoice</h2>
               <div class="supplier-main">
                  <a class="btn btn-primary m-3" href="{{route('add.invoice')}}"><i class="fas fa-plus-circle"></i>Add Invoice</a>
                  <div class="search-supplier m-3">
@@ -31,6 +31,7 @@ Invoice
                          <th>Data</th>
                          <th>Description</th>
                          <th>Amount</th>
+                         <th>Action</th>
                         </tr>
                      </thead>
                      <tbody>
@@ -44,20 +45,9 @@ Invoice
                        <td>{{$item->date}}</td>
                        <td>{{$item->description}}</td>
                        <td>{{$item['payment']['total_amount']}}</td>
-
-                       {{-- <td>
-                        @if($item->status == '0')
-                        <span class="btn btn-warning">Pending</span>
-                        @elseif($item->status == '1')
-                        <span class="btn btn-success">Approved</span>
-                        @endif
-
-                       </td> --}}
-                       {{-- <td style="display: flex">
-                        @if($item->status == '0')
-                           <a href="{{route('delete.purchase',$item->id)}}" id="delete" class="btn btn-danger m-1"><i class="fa-solid fa-pen-to-square"></i></a>
-                           @endif
-                        </td> --}}
+                       <td>
+                        <a href="{{route('approve.invoice',$item->id)}}" class="btn btn-danger m-1"><i class="fas fa-print"></i></a>
+                       </td>
                      </tr>
                      @endforeach
                      </tbody>

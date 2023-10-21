@@ -103,10 +103,12 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::controller(InvoiceController::class)->group(function(){
         Route::get('/invoice','invoice')->name('invoice');
         Route::get('/add-invoice','addInvoice')->name('add.invoice');
-        // Route::post('/save-purchase','savePurchase')->name('save.purchase');
-        // Route::get('/delete-purchase/{id}','deletePurchase')->name('delete.purchase');
-        // Route::get('/pending-purchase','pendingPurchase')->name('pending.purchase');
-        // Route::get('/approve-purchase/{id}','approvePurchase')->name('approve.purchase');
+        Route::post('/save-invoice','saveInvoice')->name('save.invoice');
+        Route::get('/pending-invoice','pendingInvoice')->name('pending.invoice');
+        Route::get('/delete-invoice/{id}','deleteInvoice')->name('delete.invoice');
+        Route::get('/approve-invoice/{id}','approveInvoice')->name('approve.invoice');
+        Route::post('/approve-invoice-store/{id}','approveInvoiceStore')->name('approve.invoice.store');
+        Route::get('/print-invoice','printInvoice')->name('print.invoice');
     });
 });
 

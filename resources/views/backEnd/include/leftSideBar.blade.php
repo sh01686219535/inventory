@@ -175,13 +175,20 @@
                                     </a>
                                 </li>
                             </ul>
-                            {{-- <ul class="menu-sub">
+                            <ul class="menu-sub">
                                 <li class="menu-item">
-                                    <a href="{{route('pending.purchase')}}" class="menu-link">
-                                        <div data-i18n="Without menu">Approve Purchase</div>
+                                    <a href="{{route('pending.invoice')}}" class="menu-link">
+                                        <div data-i18n="Without menu">Approval Invoice</div>
                                     </a>
                                 </li>
-                            </ul> --}}
+                            </ul>
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="{{route('print.invoice')}}" class="menu-link">
+                                        <div data-i18n="Without menu">Print Invoice List</div>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                          <!-- End Manage Invoice -->
                 </ul>

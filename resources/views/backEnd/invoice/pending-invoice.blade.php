@@ -1,6 +1,6 @@
 @extends('backEnd.home.master')
 @section('title')
-Invoice
+Pending Invoice
 @endsection
 @section('content')
   <div class="container">
@@ -31,6 +31,8 @@ Invoice
                          <th>Data</th>
                          <th>Description</th>
                          <th>Amount</th>
+                         <th>Status</th>
+                         <td>Action</td>
                         </tr>
                      </thead>
                      <tbody>
@@ -44,20 +46,19 @@ Invoice
                        <td>{{$item->date}}</td>
                        <td>{{$item->description}}</td>
                        <td>{{$item['payment']['total_amount']}}</td>
-
-                       {{-- <td>
-                        @if($item->status == '0')
-                        <span class="btn btn-warning">Pending</span>
-                        @elseif($item->status == '1')
+                       <td>
+                        @if ($item->status  == '0')
+                        <span class="btn btn-danger">Pending</span>
+                        @elseif($item->status  == '1')
                         <span class="btn btn-success">Approved</span>
                         @endif
-
-                       </td> --}}
-                       {{-- <td style="display: flex">
+                       </td>
+                       <td style="display: flex">
                         @if($item->status == '0')
-                           <a href="{{route('delete.purchase',$item->id)}}" id="delete" class="btn btn-danger m-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{{route('approve.invoice',$item->id)}}" class="btn btn-dark m-1"><i class="fas fa-check-circle"></i></a>
+                           <a href="{{route('delete.invoice',$item->id)}}" id="delete" class="btn btn-danger m-1"><i class="fa-solid fa-trash"></i></a>
                            @endif
-                        </td> --}}
+                        </td>
                      </tr>
                      @endforeach
                      </tbody>
