@@ -109,8 +109,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('/approve-invoice/{id}','approveInvoice')->name('approve.invoice');
         Route::post('/approve-invoice-store/{id}','approveInvoiceStore')->name('approve.invoice.store');
         Route::get('/print-invoice','printInvoice')->name('print.invoice');
+        Route::get('/invoice-print-page/{id}','printInvoicePage')->name('invoice.print.page');
+        Route::get('/daily-invoice-report','dailyInvoiceReport')->name('daily.invoice.report');
+
+
     });
 });
+
 
 
 

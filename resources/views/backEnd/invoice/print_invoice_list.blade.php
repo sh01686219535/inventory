@@ -46,7 +46,7 @@ Invoice
                        <td>{{$item->description}}</td>
                        <td>{{$item['payment']['total_amount']}}</td>
                        <td>
-                        <a href="{{route('approve.invoice',$item->id)}}" class="btn btn-danger m-1"><i class="fas fa-print"></i></a>
+                        <a href="{{route('invoice.print.page',$item->id)}}" class="btn btn-danger m-1"><i class="fas fa-print"></i></a>
                        </td>
                      </tr>
                      @endforeach

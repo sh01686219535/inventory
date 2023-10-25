@@ -184,5 +184,13 @@ class InvoiceController extends Controller
         $invoice = Invoice::orderBy('date','desc')->orderBy('date','desc')->where('status','1')->get();
         return view('backEnd.invoice.print_invoice_list',compact('invoice'));
     }
-
+    //printInvoicePage
+    public function printInvoicePage($id){
+        $invoice = Invoice::with('invoiceDetails')->find($id);
+        return view('backEnd.pdf.invoice-pdf',compact('invoice'));
+    }
+    //dailyInvoiceReport
+    public function dailyInvoiceReport(){
+        return view('backEnd.invoice.daily-invoice');
+    }
 }

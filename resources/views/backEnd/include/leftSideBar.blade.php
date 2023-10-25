@@ -189,6 +189,13 @@
                                     </a>
                                 </li>
                             </ul>
+                            <ul class="menu-sub">
+                                <li class="menu-item">
+                                    <a href="{{route('daily.invoice.report')}}" class="menu-link">
+                                        <div data-i18n="Without menu">Daily Invoice Report</div>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                          <!-- End Manage Invoice -->
                 </ul>
