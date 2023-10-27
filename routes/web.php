@@ -10,6 +10,7 @@ use App\Http\Controllers\backEnd\ProductController;
 use App\Http\Controllers\backEnd\PurchaseController;
 use App\Http\Controllers\backEnd\DefaultController;
 use App\Http\Controllers\backEnd\InvoiceController;
+use App\Http\Controllers\backEnd\StockController;
 
 
 
@@ -54,6 +55,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
        Route::get('/edit-customer/{id}','editCustomer')->name('edit.customer');
        Route::post('/update-customer','updateCustomer')->name('update.customer');
        Route::get('/delete-customer/{id}','deleteCustomer')->name('delete.customer');
+       Route::get('/Credit-customer','CreditCustomer')->name('Credit.customer');
+       Route::get('/credit-customer-pdf-prnit','creditCustomerPdfPrnit')->name('credit.customer.pdf.prnit');
+       Route::get('/edit-customer-invoice/{invoice_id}','editCustomerInvoice')->name('edit.customer.invoice');
+       Route::post('/customer-update-invoice','customerUpdateInvoice')->name('customer.update.invoice');
+       Route::get('/customer-invoice-details-pdf/{invoice_id}','customerInvoiceDetailsPdf')->name('customer.invoice.details.pdf');
+
+
     });
     //Unit
     Route::controller(UnitController::class)->group(function(){
@@ -90,6 +98,11 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('/delete-purchase/{id}','deletePurchase')->name('delete.purchase');
         Route::get('/pending-purchase','pendingPurchase')->name('pending.purchase');
         Route::get('/approve-purchase/{id}','approvePurchase')->name('approve.purchase');
+        Route::get('/daily-purchase-report','dailyPurchaseReport')->name('daily.purchase.report');
+        Route::get('/daily-purchase-pdf','dailyPurchasePdf')->name('daily.purchase.pdf');
+
+
+
     });
     //Purchase
     Route::controller(DefaultController::class)->group(function(){
@@ -111,8 +124,15 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('/print-invoice','printInvoice')->name('print.invoice');
         Route::get('/invoice-print-page/{id}','printInvoicePage')->name('invoice.print.page');
         Route::get('/daily-invoice-report','dailyInvoiceReport')->name('daily.invoice.report');
-
-
+        Route::get('/daily-invoice-pdf','dailyInvoicePdf')->name('daily.invoice.pdf');
+    });
+      //Stock Report
+      Route::controller(StockController::class)->group(function(){
+        Route::get('/stock-report','stockReport')->name('stock.report');
+        Route::get('/stock-report-pdf','stockReportPdf')->name('stock.report.pdf');
+        Route::get('/stock-supplier-wise','stockSupplierWise')->name('stock.supplier.wise');
+        Route::get('/supplier-wise-pdf','supplierWisePdf')->name('supplier.wise.pdf');
+        Route::get('/product-wise-pdf','productWisePdf')->name('product.wise.pdf');
     });
 });
 

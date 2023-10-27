@@ -86,4 +86,19 @@ class PurchaseController extends Controller
             return redirect('/purchase')->with($purchase);
         }
     }
+
+    //dailyPurchaseReport
+    public function dailyPurchaseReport(){
+        // $purchase = Purchase::orderBy('date','desc')->orderBy('id','desc')->get();
+        return view('backEnd.purchase.daily-purchase-report');
+    }
+    //dailyPurchasePdf
+    public function dailyPurchasePdf(Request $reqest){
+        $sdate = $reqest->start_date;
+        $edate = $reqest->end_date;
+        $allData = Purchase::whereBetween('date',[$sdate,$edate])->where('status','1')->get();
+        $start_date = $reqest->start_date;
+        $end_date = $reqest->end_date;
+        return view('backEnd.pdf.daily-purchase-pdf',compact('allData','start_date','end_date'));
+    }
 }

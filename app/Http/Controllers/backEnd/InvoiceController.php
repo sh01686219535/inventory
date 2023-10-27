@@ -31,7 +31,6 @@ class InvoiceController extends Controller
         }else {
             $Invoice = Invoice::orderBy('date','desc')->first()->invoice_no;
             $invoiceNo = $Invoice+1;
-
         }
         // dd($Invoice);
         $date = Date('Y-m-d');
@@ -73,7 +72,7 @@ class InvoiceController extends Controller
                         $invoiceDetails->selling_price = $request->selling_price[$i];
                         $invoiceDetails->unit_price = $request->unit_price[$i];
                         $invoiceDetails->product_id = $request->product_id[$i];
-                        $invoiceDetails->status = '1';
+                        $invoiceDetails->status = '0';
                         $invoiceDetails->save();
 
                     }
@@ -165,6 +164,8 @@ class InvoiceController extends Controller
         DB::transaction(function () use($request,$invoice,$id){
             foreach ($request->selling_qty as $key => $value) {
                 $invoiceDetils = InvoiceDetails::where('id',$key)->first();
+                $invoiceDetils->status = '1';
+                $invoiceDetils->save();
                 $product = Product::where('id',$invoiceDetils->product_id)->first();
                 $product->quantity = ((float)$product->quantity) - ((float)$request->selling_qty[$key]);
                 $product->save();
@@ -192,5 +193,14 @@ class InvoiceController extends Controller
     //dailyInvoiceReport
     public function dailyInvoiceReport(){
         return view('backEnd.invoice.daily-invoice');
+    }
+    //dailyInvoicePdf
+    public function dailyInvoicePdf(Request $reqest){
+        $sdate = $reqest->start_date;
+        $edate = $reqest->end_date;
+        $allData = Invoice::whereBetween('date',[$sdate,$edate])->where('status','1')->get();
+        $start_date = $reqest->start_date;
+        $end_date = $reqest->end_date;
+        return view('backEnd.pdf.daily-invoice-pdf',compact('allData','start_date','end_date'));
     }
 }

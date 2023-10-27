@@ -9,7 +9,7 @@ Add Invoice
           <div class="card">
             <div class="card-head">
               <div class="supplier-main mt-5">
-                 <h3 class="m-3">Invoice Create</h3>
+                 <h3 class="m-3">Daily Purchase Report</h3>
               </div>
             </div>
           </div>
@@ -19,7 +19,7 @@ Add Invoice
         @include('backEnd.error')
         <div class="col-md-12">
             <div class="card">
-               <form action="{{route('daily.invoice.pdf')}}" method="get" target="_blank">
+               <form action="{{route('daily.purchase.pdf')}}" method="get" target="_blank">
 
                 <div class="card-body">
                     <div class="row">
