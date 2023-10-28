@@ -25,7 +25,7 @@ Product
                     @csrf
                     <div class="form-group">
                       <label for="supplier_id"><b>Supplier Name</b></label>
-                      <select name="supplier_id" id="supplier_id" class="form-control my-2">
+                      <select name="supplier_id" id="supplier_id" class="form-select my-2 select2">
                         <option value="">Select Supplier Name</option>
                         @foreach ($supplier as $suppliers)
                            <option value="{{$suppliers->id}}">{{$suppliers->supplier_name}}</option>

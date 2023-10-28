@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Rules\CheckOldPassword;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -59,7 +60,11 @@ class AdminController extends Controller
     //updatePassword
     public function updatePassword(Request $request){
         $request->validate([
-            'oldPassword'=>'required',
+            // 'oldPassword'=>'required',
+            'oldPassword' => [
+                'required',
+                new CheckOldPassword, // Use the custom rule here
+            ],
             'newPassword'=>'required',
             'confirmPassword'=>'required|same:newPassword',
         ]);
